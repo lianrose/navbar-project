@@ -1,19 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+
+import Home from "./Pages/home";
+import About from "./Pages/about";
+import Contact from "./Pages/contact";
+import Profile from "./Pages/profile";
+
+import "./App.css";
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <section id="home" style={{ padding: "100px", textAlign: "center" }}>
-        <h1>WELCOME TO ROSSIE'S WEBSITE 🐢</h1>
-        <p>"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God." – Philippians 4:6</p>
-      </section>
-    </div>
+      <div style={{ paddingBottom: "80px" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </div>
+      <Footer />
+    </Router>
   );
 }
 
 export default App;
-
